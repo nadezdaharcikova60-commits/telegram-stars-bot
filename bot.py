@@ -84,7 +84,7 @@ async def process_buy_menu(callback: CallbackQuery, state: FSMContext):
     
     await callback.message.edit_text(
         "🛒 <b>Покупка Telegram Stars</b>\n\n"
-        "🔢 Введите количество звезд, которое хотите приобрести (например: <code>50</code>):",
+        "🔢 Введите количество звезд больше 50, которое хотите приобрести (например: <code>67</code>):",
         reply_markup=keyboard,
         parse_mode="HTML"
     )
@@ -99,7 +99,7 @@ async def process_amount(message: Message, state: FSMContext):
 
     amount = int(message.text)
     if amount <= 0:
-        await message.answer("⚠️ Количество звезд должно быть больше нуля.", reply_markup=get_back_to_menu_keyboard())
+        await message.answer("⚠️ Количество звезд должно быть больше 50.", reply_markup=get_back_to_menu_keyboard())
         return
 
     total_price = amount * PRICE_PER_STAR
