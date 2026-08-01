@@ -98,7 +98,7 @@ async def process_amount(message: Message, state: FSMContext):
         return
 
     amount = int(message.text)
-    if amount <= 0:
+    if amount <= 50:
         await message.answer("⚠️ Количество звезд должно быть больше 50.", reply_markup=get_back_to_menu_keyboard())
         return
 
